@@ -1,0 +1,33 @@
+---
+---
+
+<script is:inline>
+  function attachEvent(selector, event, fn) {
+    const matches = typeof selector === "string" ? document.querySelectorAll(selector) : selector;
+    if (matches && matches.length) {
+      matches.forEach((elem) => {
+        elem.addEventListener(event, (e) => fn(e, elem), false);
+      });
+    }
+  }
+
+  window.onload = function () {
+    attachEvent("[data-aw-toggle-menu]", "click", function (_, elem) {
+      elem.classList.toggle("expanded");
+      document.body.classList.toggle("overflow-hidden");
+      document.getElementById("header")?.classList.toggle("h-24");
+      document.getElementById("header")?.classList.toggle("h-screen");
+      document.querySelector("#header nav")?.classList.toggle("hidden");
+    });
+  };
+
+  window.onpageshow = function () {
+    const elem = document.querySelector("[data-aw-toggle-menu]");
+    if (elem) {
+      elem.classList.remove("expanded");
+    }
+    document.body.classList.remove("overflow-hidden");
+    document.getElementById("header")?.classList.remove("h-screen");
+    document.querySelector("#header nav")?.classList.add("hidden");
+  };
+</script>

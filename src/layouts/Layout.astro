@@ -1,7 +1,8 @@
 ---
 import "~/styles/base.css";
-import Navbar from "~/components/molecules/Navbar.astro";
+import BasicScripts from "~/components/atoms/BasicScripts.astro";
 import Picture from "~/components/atoms/Picture.astro";
+import Navbar from "~/components/molecules/Navbar.astro";
 
 import favicon from "~/assets/favicon.ico";
 import backgroundImg from "~/assets/images/pexels-vishnu-r-nair-1105666.jpg";
@@ -23,6 +24,7 @@ const { title } = Astro.props;
     <title>{title ? title : "Jota Eventos"}</title>
   </head>
   <body class="bg-gradient-to-b from-slate-800 to-slate-950">
+    <BasicScripts />
     <div class="relative z-[-10]">
       <Picture src={backgroundImg} class="pointer-events-none absolute inset-0 h-screen w-full object-cover" widths={[768, 1600, 2400, 3600, 4480]} sizes="(max-width: 768px) 768px, (max-width: 1400px) 1600px, (max-width: 2400px) 2400px, (max-width: 3600px) 3600px, 4480px" alt="Gente bailand" aspectRatio="16:9" />
       <div class="noise pointer-events-none absolute inset-0 h-screen w-full backdrop-blur-sm"></div>

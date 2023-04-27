@@ -1,7 +1,25 @@
 ---
-import Logo from "../atoms/Logo.astro";
+import Logo from "~/components/atoms/Logo.astro";
+import NavbarToggle from "../atoms/NavbarToggle.astro";
 ---
 
-<nav class="flex h-80 w-full items-center justify-start">
-  <Logo />
-</nav>
+<header class="relative z-40 mx-auto h-24 w-full bg-gradient-to-b from-black/70 to-transparent transition-all duration-100 ease-in" id="header">
+  <div class="mx-auto w-full px-3 py-3 lg:container lg:flex lg:justify-between lg:px-4 lg:py-3.5">
+    <div class="flex items-center justify-between">
+      <a class="flex items-center" href="/">
+        <Logo />
+      </a>
+      <div class="flex items-center lg:hidden">
+        <NavbarToggle />
+      </div>
+    </div>
+    <nav class="hidden h-screen w-full items-center overflow-y-auto text-slate-200 lg:mx-5 lg:flex lg:h-auto lg:w-auto lg:overflow-visible" aria-label="Main navigation">
+      <ul class="flex w-full flex-col pt-8 text-xl font-medium lg:w-auto lg:flex-row lg:self-center lg:pt-0 lg:text-base">
+        <li><a class="flex items-center rounded p-4 transition hover:bg-white/20" href="/">Inicio</a></li>
+        <li><a class="flex items-center rounded p-4 transition hover:bg-white/20" href="/servicios">Servicios</a></li>
+        <li><a class="flex items-center rounded p-4 transition hover:bg-white/20" href="/gallery">Galeria</a></li>
+        <li><a class="flex items-center rounded p-4 transition hover:bg-white/20" href="/contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
