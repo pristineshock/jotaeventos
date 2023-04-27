@@ -24,7 +24,7 @@ const { image = {}, sources = [] } = picture || {};
 {
   src && image?.src && (
     <picture {...attrs}>
-      {sources.map((attrs) => (
+      {sources.map((attrs: astroHTML.JSX.IntrinsicAttributes & astroHTML.JSX.SourceHTMLAttributes) => (
         <source {...attrs} sizes={sizes} />
       ))}
       <img {...image} {loading} {decoding} {alt} class={className} />
