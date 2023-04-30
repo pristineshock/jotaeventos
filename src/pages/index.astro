@@ -1,9 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "~/layouts/Layout.astro";
 ---
 
 <Layout title="">
-	<main>
-		
-	</main>
+  <main class="container mx-auto -mt-32 flex h-screen max-w-4xl flex-col items-center justify-center gap-12 md:flex-row">
+    <div class="flex w-10/12 flex-col items-start justify-center text-white md:w-1/2">
+      <h1 class="text-5xl font-bold">Hacemos de tu fiesta algo único</h1>
+      <h2 class="mt-4 text-2xl font-medium">No dejes tu evento en manos de cualquiera. Experiencia y calidad garantizadas.</h2>
+    </div>
+    <a href="/contact" class="flex w-10/12 max-w-xs items-center justify-center rounded bg-yellow-400 p-4 font-bold text-black md:w-1/2">Hablá con nosotros</a>
+  </main>
 </Layout>
