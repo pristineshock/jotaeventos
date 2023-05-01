@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["'InterVariable'", ...defaultTheme.fontFamily.sans],
+        inter: ["'InterVariable'", ...defaultTheme.fontFamily.sans],
         hamburger: ["'Hamburger'", ...defaultTheme.fontFamily.sans],
         walkway: ["'Walkway'", ...defaultTheme.fontFamily.sans],
       },
