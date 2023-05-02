@@ -10,5 +10,6 @@ export const SITE = {
   facebook: "",
   instagram: "https://www.instagram.com/jota_eventos/",
 
-  googleAnalyticsId: false, // or "G-XXXXXXXXXX",
+  googleCaptchaPublicKey: "6Lcb99IlAAAAAO8WpIz-6ebQiswQVxS9YZqTZ5W4",
+  googleAnalyticsId: false,
 };
