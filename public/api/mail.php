@@ -14,10 +14,11 @@ require __DIR__ . "/vendor/autoload.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-$recaptcha = new \ReCaptcha\ReCaptcha(GOOGLE_CAPTCHA_PRIVATE);
+use ReCaptcha\ReCaptcha;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $recaptcha = new ReCaptcha(GOOGLE_CAPTCHA_PRIVATE);
+
   $return = null;
 
   // Post Name Sanitation and Validation
