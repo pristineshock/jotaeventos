@@ -37,17 +37,13 @@
 
           if (parsedJson.status == "success") resSuccess = true;
           resMsg = parsedJson.message;
-          if (parsedJson.nameErr)
-            resNameErr = "Name Error: " + parsedJson.nameErr;
+          if (parsedJson.nameErr) resNameErr = "Nombre Error: " + parsedJson.nameErr;
           else resNameErr = null;
-          if (parsedJson.mailErr)
-            resMailErr = "Mail Error: " + parsedJson.mailErr;
+          if (parsedJson.mailErr) resMailErr = "Mail Error: " + parsedJson.mailErr;
           else resMailErr = null;
-          if (parsedJson.messageErr)
-            resMsgErr = "Message Error: " + parsedJson.messageErr;
+          if (parsedJson.messageErr) resMsgErr = "Mensaje Error: " + parsedJson.messageErr;
           else resMsgErr = null;
-          if (parsedJson.captchaErr)
-            resCaptchaErr = "Captcha Error: " + parsedJson.captchaErr;
+          if (parsedJson.captchaErr) resCaptchaErr = "Captcha Error: " + parsedJson.captchaErr;
           else resCaptchaErr = null;
           loading = false;
         })
@@ -61,14 +57,10 @@
 </script>
 
 <svelte:head>
-  <script
-    src={"https://www.google.com/recaptcha/api.js?render=" +
-      SITE.googleCaptchaPublicKey}
-    defer
-  ></script>
+  <script src={"https://www.google.com/recaptcha/api.js?render=" + SITE.googleCaptchaPublicKey} defer></script>
 </svelte:head>
 
-<div class="mx-auto max-w-xl px-4 sm:px-6">
+<div class="mx-auto max-w-xl rounded-2xl bg-black/20 p-4 backdrop-blur-xl sm:p-6">
   {#if loading}
     <div class="flex items-center justify-center py-40">
       <div class="fancy-spinner">
@@ -85,77 +77,41 @@
       </p>
     </div>
   {:else if !resSuccess && !loading}
-    <form
-      on:submit|preventDefault={handleSubmit}
-      class="m-auto mt-6 flex max-w-lg flex-col items-center px-6 text-left md:mt-0"
-    >
-      <input
-        aria-hidden="true"
-        type="hidden"
-        name="bot-field"
-        bind:value={botField}
-      />
+    <form on:submit|preventDefault={handleSubmit} class="m-auto mt-6 flex max-w-lg flex-col items-center px-6 text-left md:mt-0">
+      <input aria-hidden="true" type="hidden" name="bot-field" bind:value={botField} />
       <div class="my-2 w-full">
-        <label for="name">Name</label>
-        <input
-          bind:value={name}
-          class="w-full rounded border p-2 dark:border-slate-500 dark:bg-slate-800 dark:text-white"
-          required
-          id="name"
-          placeholder="Name"
-          title="Name"
-          type="text"
-        />
+        <label for="name" class="font-bold text-white">Nombre</label>
+        <input bind:value={name} class="w-full rounded border bg-slate-100 p-2" required id="name" placeholder="Nombre" title="Nombre" type="text" />
         {#if resNameErr}
-          <p class="text-sm font-bold text-red-600">{resNameErr}</p>
+          <p class="mt-1 rounded bg-red-400 p-2 text-xs text-black">{resNameErr}</p>
         {/if}
       </div>
       <div class="my-2 w-full">
-        <label for="email">Email</label>
-        <input
-          bind:value={email}
-          class="w-full rounded border p-2 dark:border-slate-500 dark:bg-slate-800 dark:text-white"
-          required
-          id="email"
-          placeholder="blake@example.com"
-          title="Email"
-          type="email"
-        />
+        <label for="email" class="font-bold text-white">Email</label>
+        <input bind:value={email} class="w-full rounded border bg-slate-100 p-2" required id="email" placeholder="blake@example.com" title="Email" type="email" />
         {#if resMailErr}
-          <p class="text-sm font-bold text-red-600">{resMailErr}</p>
+          <p class="mt-1 rounded bg-red-400 p-2 text-xs text-black">{resMailErr}</p>
         {/if}
       </div>
       <div class="my-2 w-full">
-        <label for="message">Message</label>
-        <textarea
-          bind:value={message}
-          class="w-full rounded border p-2 dark:border-slate-500 dark:bg-slate-800 dark:text-white"
-          required
-          id="message"
-          rows={6}
-          placeholder="Write your message here..."
-          title="Message"
-          type="text"
-        />
+        <label for="message" class="font-bold text-white">Mensaje</label>
+        <textarea bind:value={message} class="w-full rounded border bg-slate-100 p-2" required id="message" rows={6} placeholder="Escribe tu mensaje aquí..." title="Mensaje" type="text" />
         {#if resMsgErr}
-          <p class="text-sm font-bold text-red-600">{resMsgErr}</p>
+          <p class="mt-1 rounded bg-red-400 p-2 text-xs text-black">{resMsgErr}</p>
         {/if}
       </div>
       <div class="mx-auto my-4">
         <div id="captcha" />
         {#if resCaptchaErr}
-          <p class="text-sm font-bold text-red-600">{resCaptchaErr}</p>
+          <p class="mt-1 rounded bg-red-400 p-2 text-xs text-black">{resCaptchaErr}</p>
         {/if}
       </div>
       {#if resStatus == "failed"}
-        <p class="py-3 text-sm font-bold text-red-600">
+        <p class="mt-1 rounded bg-red-400 p-2 text-xs text-black">
           {resMsg}
         </p>
       {/if}
-      <button
-        class="flex w-full items-center justify-center rounded bg-yellow-400 p-4 font-inter font-bold text-black"
-        type="submit">Send</button
-      >
+      <button class="flex w-full items-center justify-center rounded bg-yellow-400 p-4 font-inter font-bold text-black" type="submit">Enviar</button>
     </form>
   {/if}
 </div>
