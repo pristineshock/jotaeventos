@@ -58,9 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_REQUEST["recaptcha"])) {
     $captcha = htmlspecialchars($_REQUEST["recaptcha"]);
 
-    $resp = $recaptcha
-      ->setExpectedHostname($_SERVER["SERVER_NAME"])
-      ->verify($captcha, $_SERVER["REMOTE_ADDR"]);
+    $resp = $recaptcha->setExpectedHostname($_SERVER["SERVER_NAME"])->verify($captcha, $_SERVER["REMOTE_ADDR"]);
     if ($resp->isSuccess()) {
       // Verified!
     } else {
@@ -71,12 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   // Check if there are errors
-  if (
-    !empty($return["nameErr"]) ||
-    !empty($return["mailErr"]) ||
-    !empty($return["messageErr"]) ||
-    !empty($return["captchaErr"])
-  ) {
+  if (!empty($return["nameErr"]) || !empty($return["mailErr"]) || !empty($return["messageErr"]) || !empty($return["captchaErr"])) {
     $return["status"] = "failed";
     $return["message"] = "Please, check all fields for errors";
     echo json_encode($return);
@@ -101,31 +94,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $mailer->isHTML(true);
     $mailer->Subject = "There is a new message in JotaEventos.";
-    $mailer->Body =
-      "There is a new message in JotaEventos.<br /><br />Message from: " .
-      $name .
-      " ( " .
-      $mail .
-      " ) <br /><br />" .
-      $message;
-    $mailer->AltBody =
-      "There is a new message in JotaEventos./n/nMessage from: " .
-      $name .
-      " ( " .
-      $mail .
-      " ) /n/n" .
-      $message;
+    $mailer->Body = "There is a new message in JotaEventos.<br /><br />Message from: " . $name . " ( " . $mail . " ) <br /><br />" . $message;
+    $mailer->AltBody = "There is a new message in JotaEventos./n/nMessage from: " . $name . " ( " . $mail . " ) /n/n" . $message;
 
     $mailer->send();
     $return["status"] = "success";
-    $return["message"] =
-      "Thank you for sending this message. We will send you an email as soon as possible.";
+    $return["message"] = "Thank you for sending this message. We will send you an email as soon as possible.";
     echo json_encode($return);
   } catch (Exception $e) {
     $return["status"] = "failed";
-    $return["message"] =
-      "There was an error sending this message. Please try again later or contact the administrator at " .
-      MAIL_FROM;
+    $return["message"] = "There was an error sending this message. Please try again later or contact the administrator at " . MAIL_FROM;
     echo json_encode($return);
   }
 } else {
