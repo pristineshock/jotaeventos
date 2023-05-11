@@ -1,0 +1,17 @@
+---
+import { Image } from "@astrojs/image/components";
+
+interface Props {
+  src: string;
+  alt: string;
+  extraClass?: string;
+}
+const { src, alt } = Astro.props;
+---
+
+<div class="group flex items-center justify-center">
+  <div class="absolute z-20 h-60 w-80 -rotate-6 scale-105 rounded-lg bg-black/30 backdrop-blur-xl transition group-hover:rotate-0 group-hover:scale-100"></div>
+  <a href={src} target="_blank">
+    <Image src={src} alt={alt} width={320} height={240} class="relative z-30 rotate-6 rounded-lg opacity-90 transition group-hover:rotate-0 group-hover:opacity-100" />
+  </a>
+</div>
