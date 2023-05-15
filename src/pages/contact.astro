@@ -3,21 +3,37 @@ import Layout from "~/layouts/Layout.astro";
 import PageTitle from "~/components/atoms/PageTitle.astro";
 import Form from "~/components/organisms/Form.svelte";
 import { Icon } from "astro-icon";
+import { SITE } from "~/config.mjs";
 ---
 
-<Layout title="">
+<Layout title="Contacto">
   <main class="container mx-auto mt-12 flex max-w-4xl flex-col items-center justify-center gap-12">
     <PageTitle title="Contacto" />
     <div class="flex w-full flex-col items-start justify-center gap-12 md:flex-row">
       <div class="flex flex-[1_1_100%] flex-col items-center justify-start gap-6 rounded-lg bg-black/20 p-6 backdrop-blur-xl md:flex-[1_1_50%]">
         <h2 class="text-4xl font-bold text-white">Redes Sociales</h2>
         <div class="flex flex-wrap items-start justify-center gap-4">
-          <a href="https://wa.me/+543435411954" target="_blank">
-            <Icon name="mdi:whatsapp" class="h-16 w-16 text-white" />
-          </a>
-          <a href="https://www.instagram.com/jota_eventos" target="_blank">
-            <Icon name="mdi:instagram" class="h-16 w-16 text-white" />
-          </a>
+          {
+            SITE.facebook && (
+              <a href={SITE.facebook} target="_blank">
+                <Icon name="mdi:facebook" class="h-16 w-16 text-white" />
+              </a>
+            )
+          }
+          {
+            SITE.whatsapp && (
+              <a href={SITE.whatsapp} target="_blank">
+                <Icon name="mdi:whatsapp" class="h-16 w-16 text-white" />
+              </a>
+            )
+          }
+          {
+            SITE.instagram && (
+              <a href={SITE.instagram} target="_blank">
+                <Icon name="mdi:instagram" class="h-16 w-16 text-white" />
+              </a>
+            )
+          }
         </div>
       </div>
       <Form client:load />
