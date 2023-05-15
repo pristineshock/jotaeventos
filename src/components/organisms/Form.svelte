@@ -60,7 +60,7 @@
   <script src={"https://www.google.com/recaptcha/api.js?render=" + SITE.googleCaptchaPublicKey} defer></script>
 </svelte:head>
 
-<div class="mx-auto max-w-xl rounded-2xl bg-black/20 p-4 backdrop-blur-xl sm:p-6">
+<div class="mx-auto w-full max-w-xl flex-[1_1_100%] rounded-2xl bg-black/20 p-6 backdrop-blur-xl md:flex-[1_1_50%]">
   {#if loading}
     <div class="flex items-center justify-center py-40">
       <div class="fancy-spinner">
@@ -77,30 +77,30 @@
       </p>
     </div>
   {:else if !resSuccess && !loading}
-    <form on:submit|preventDefault={handleSubmit} class="m-auto mt-6 flex max-w-lg flex-col items-center px-6 text-left md:mt-0">
+    <form on:submit|preventDefault={handleSubmit} class="m-auto flex max-w-lg flex-col items-center text-left">
       <input aria-hidden="true" type="hidden" name="bot-field" bind:value={botField} />
-      <div class="my-2 w-full">
+      <div class="mb-2 w-full">
         <label for="name" class="font-bold text-white">Nombre</label>
         <input bind:value={name} class="w-full rounded border bg-slate-100 p-2" required id="name" placeholder="Nombre" title="Nombre" type="text" />
         {#if resNameErr}
           <p class="mt-1 rounded bg-red-400 p-2 text-xs text-black">{resNameErr}</p>
         {/if}
       </div>
-      <div class="my-2 w-full">
+      <div class="mb-2 w-full">
         <label for="email" class="font-bold text-white">Email</label>
         <input bind:value={email} class="w-full rounded border bg-slate-100 p-2" required id="email" placeholder="blake@example.com" title="Email" type="email" />
         {#if resMailErr}
           <p class="mt-1 rounded bg-red-400 p-2 text-xs text-black">{resMailErr}</p>
         {/if}
       </div>
-      <div class="my-2 w-full">
+      <div class="mb-2 w-full">
         <label for="message" class="font-bold text-white">Mensaje</label>
         <textarea bind:value={message} class="w-full rounded border bg-slate-100 p-2" required id="message" rows={6} placeholder="Escribe tu mensaje aquí..." title="Mensaje" type="text" />
         {#if resMsgErr}
           <p class="mt-1 rounded bg-red-400 p-2 text-xs text-black">{resMsgErr}</p>
         {/if}
       </div>
-      <div class="mx-auto my-4">
+      <div class="mx-auto mb-4">
         <div id="captcha" />
         {#if resCaptchaErr}
           <p class="mt-1 rounded bg-red-400 p-2 text-xs text-black">{resCaptchaErr}</p>
@@ -111,7 +111,7 @@
           {resMsg}
         </p>
       {/if}
-      <button class="flex w-full items-center justify-center rounded bg-yellow-400 p-4 font-inter font-bold text-black" type="submit">Enviar</button>
+      <button class="flex w-full items-center justify-center rounded bg-yellow-400 p-4 font-inter font-bold text-black transition hover:bg-yellow-400/90" type="submit">Enviar</button>
     </form>
   {/if}
 </div>
@@ -137,33 +137,20 @@
     animation: 3s fancy infinite alternate;
   }
   .fancy-spinner div.spinner-ring:nth-child(1) {
-    border-left-color: #333;
-    border-right-color: #333;
+    border-left-color: #eaeaea;
+    border-right-color: #eaeaea;
   }
   .fancy-spinner div.spinner-ring:nth-child(2) {
-    border-top-color: #333;
-    border-bottom-color: #333;
+    border-top-color: #eaeaea;
+    border-bottom-color: #eaeaea;
     animation-delay: 2s;
   }
   .fancy-spinner div.spinner-dot {
     width: 1rem;
     height: 1rem;
-    background: #333;
-  }
-  .dark .fancy-spinner div.spinner-ring:nth-child(1) {
-    border-left-color: #eaeaea;
-    border-right-color: #eaeaea;
-  }
-  .dark .fancy-spinner div.spinner-ring:nth-child(2) {
-    border-top-color: #eaeaea;
-    border-bottom-color: #eaeaea;
-    animation-delay: 2s;
-  }
-  .dark .fancy-spinner div.spinner-dot {
-    width: 1rem;
-    height: 1rem;
     background: #eaeaea;
   }
+
   @keyframes fancy {
     to {
       transform: rotate(360deg) scale(0.5);
