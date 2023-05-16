@@ -1,10 +1,31 @@
 ---
 import Layout from "~/layouts/Layout.astro";
 import PageTitle from "~/components/atoms/PageTitle.astro";
+import ServiceCard from "~/components/molecules/ServiceCard.astro";
 ---
 
 <Layout title="">
-  <main class="container mx-auto -mt-32 flex h-screen max-w-4xl flex-col items-center justify-center gap-12 md:flex-row">
+  <main class="container mx-auto mt-12 flex max-w-4xl flex-col items-center justify-center gap-12">
     <PageTitle title="Servicios" />
+    <div class="grid grid-cols-1 items-stretch justify-center gap-6 md:grid-cols-2">
+      <ServiceCard title="Música personalizada" text="Creamos una lista de música personalizada para tu evento, basada en tus gustos y preferencias." icon="mdi:music-box" />
+      <ServiceCard
+        title="Iluminación"
+        text="Proveemos iluminación para el evento, incluyendo luces de discoteca, luces LED y otros efectos de iluminación para crear un ambiente perfecto para tu evento."
+        icon="mdi:string-lights"
+      />
+      <ServiceCard
+        title="Sonido de alta calidad"
+        text="Usamos equipos de sonido de alta calidad y ultima tecnología, configurado para que la música siempre suene nítida y clara."
+        icon="mdi:speaker"
+      />
+      <ServiceCard title="Micrófono" text="Proveemos microfonía para discursos, presentaciones o anuncios durante el evento." icon="maki:karaoke" />
+      <ServiceCard
+        title="Proyector"
+        text="Podemos proporcionar proyección de videos para mostrar imágenes o videos durante la fiesta, como una presentación de diapositivas de fotos del cumpleañero."
+        icon="mdi:projector-screen-outline"
+      />
+      <ServiceCard title="Karaoke" text="Podemos proporcionar un servicio de karaoke, donde los invitados pueden cantar sus canciones favoritas." icon="maki:karaoke" />
+    </div>
   </main>
 </Layout>
