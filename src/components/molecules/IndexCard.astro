@@ -1,10 +1,8 @@
 ---
-import { Picture } from "@astrojs/image/components";
-
 interface Props {
   title: string;
   page: string;
-  image: string | any;
+  image: string;
   large?: boolean;
 }
 
@@ -13,28 +11,22 @@ const { title, page, image = await Astro.slots.render("image"), large } = Astro.
 
 {
   large ? (
-    <a href={`/${page}`} class="group relative col-span-2 flex h-80 w-full items-center justify-center overflow-hidden bg-black transition">
-      <Picture
-        src={image}
-        alt={title}
-        class="absolute inset-0 scale-100 opacity-70 blur-[2px] transition group-hover:scale-110 group-hover:opacity-50 group-hover:blur-[1px]"
-        widths={[640, 1280]}
-        sizes="(max-width: 768px) 640px, 1280px"
-        aspectRatio={1.5}
-      />
-      <h2 class="z-10 text-5xl font-bold tracking-tighter text-white">{title}</h2>
+    <a
+      href={`/${page}`}
+      style={`background-image:url("/image/${image}")`}
+      class="group relative col-span-1 mx-auto flex w-full items-center justify-center border-8 border-black/50 bg-cover bg-center transition md:col-span-2"
+    >
+      <div class="absolute inset-0 h-full w-full bg-black/40 backdrop-blur-[2px] transition group-hover:bg-black/30" />
+      <h2 class="z-10 px-12 py-32 font-walkway text-5xl tracking-wide text-white transition-all group-hover:tracking-wider">{title}</h2>
     </a>
   ) : (
-    <a href={`/${page}`} class="group relative col-span-1 flex h-80 w-full items-center justify-center overflow-hidden bg-black transition">
-      <Picture
-        src={image}
-        alt={title}
-        class="absolute inset-x-0 bottom-0 scale-100 opacity-70 blur-[2px] transition group-hover:scale-110 group-hover:opacity-50 group-hover:blur-[1px]"
-        widths={[320, 640]}
-        sizes="(max-width: 768px) 320px, 640px"
-        aspectRatio={1}
-      />
-      <h2 class="z-10 text-5xl font-bold tracking-tighter text-white">{title}</h2>
+    <a
+      href={`/${page}`}
+      style={`background-image:url("/image/${image}")`}
+      class="group relative col-span-1 mx-auto flex w-full items-center justify-center border-8 border-black/50 bg-cover bg-center transition"
+    >
+      <div class="absolute inset-0 h-full w-full bg-black/40 backdrop-blur-[2px] transition group-hover:bg-black/30" />
+      <h2 class="z-10 px-12 py-32 font-walkway text-6xl tracking-wide text-white transition-all group-hover:tracking-wider">{title}</h2>
     </a>
   )
 }
