@@ -1,14 +1,12 @@
 ---
 import Layout from "~/layouts/Layout.astro";
 import IndexCard from "~/components/molecules/IndexCard.astro";
-
-import serviceImg from "~/assets/images/pexels-jacob-morch-426976.jpg";
 ---
 
 <Layout title="">
-  <main class="container mx-auto mt-32 grid grid-cols-2 gap-8">
-    <IndexCard title="Hacemos de tu fiesta algo único" page="contact" image={serviceImg} large />
-    <IndexCard title="Servicios" page="services" image={serviceImg} />
-    <IndexCard title="Galeria" page="gallery" image={serviceImg} />
+  <main class="container mx-auto mt-32 grid w-11/12 max-w-7xl grid-cols-1 gap-8 md:w-10/12 md:grid-cols-2">
+    <IndexCard title="Hacemos de tu fiesta algo único" page="contact" image="pexels-cottonbro-studio-3171837.jpg" large />
+    <IndexCard title="Servicios" page="services" image="pexels-francesco-paggiaro-2111015.jpg" />
+    <IndexCard title="Galeria" page="gallery" image="pexels-jacob-morch-426976.jpg" />
   </main>
 </Layout>
