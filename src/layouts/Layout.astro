@@ -5,6 +5,7 @@ import "@fontsource/inter/variable.css";
 import BasicScripts from "~/components/atoms/BasicScripts.astro";
 import Picture from "~/components/atoms/Picture.astro";
 import Navbar from "~/components/molecules/Navbar.astro";
+import Footer from "~/components/molecules/Footer.astro";
 
 import favicon from "~/assets/favicon.ico";
 import backgroundImg from "~/assets/images/pexels-vishnu-r-nair-1105666.jpg";
@@ -40,5 +41,6 @@ const { title } = Astro.props;
     </div>
     <Navbar />
     <slot />
+    <Footer />
   </body>
 </html>
