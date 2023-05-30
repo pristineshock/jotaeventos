@@ -15,6 +15,7 @@
     "@astrojs/sitemap": "^1.2.2",
     "@astrojs/svelte": "^2.1.1",
     "@astrojs/tailwind": "^3.1.1",
+    "@fontsource/abel": "^5.0.1",
     "@fontsource/inter": "^4.5.15",
     "@prettier/plugin-php": "^0.19.4",
     "@typescript-eslint/parser": "^5.59.1",
