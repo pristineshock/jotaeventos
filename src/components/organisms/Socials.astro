@@ -1,0 +1,19 @@
+---
+import { Icon } from "astro-icon";
+import { SITE } from "~/config.mjs";
+import SocialIcon from "~/components/atoms/SocialIcon.astro";
+---
+
+<div class="flex flex-[1_1_100%] flex-col items-center justify-start gap-6 rounded-lg bg-black/60 p-6 font-inter text-white backdrop-blur-xl md:flex-[1_1_50%]">
+  <h2 class="text-center text-4xl font-bold">¡Hablemos de tu proximo evento!</h2>
+  <p class="text-lg">Estamos esperando saber más sobre tu próximo evento y trabajar juntos para hacer que sea todo un éxito.</p>
+  <p class="text-lg">Puede contactar con nosotros a través del formulario de contacto, o eligiendo una de las opciones a continuación.</p>
+  <p class="text-lg">¡Estamos esperando tu mensaje!</p>
+  <div class="flex flex-wrap items-start justify-center gap-4">
+    {SITE.phone && <SocialIcon link={`tel:${SITE.phone}`} name="mdi:phone" />}
+    {SITE.facebook && <SocialIcon link={SITE.facebook} name="mdi:facebook" />}
+    {SITE.whatsapp && <SocialIcon link={SITE.whatsapp} name="mdi:whatsapp" />}
+    {SITE.instagram && <SocialIcon link={SITE.instagram} name="mdi:instagram" />}
+    {SITE.email && <SocialIcon link={`mailto:${SITE.email}`} name="mdi:email" />}
+  </div>
+</div>
