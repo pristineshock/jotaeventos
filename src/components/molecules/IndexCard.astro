@@ -20,8 +20,8 @@ const largeClasses = large ? "md:col-span-2" : null;
   class={`group relative col-span-1 mx-auto flex w-full items-end justify-start border-8 border-black/30 bg-cover bg-clip-padding bg-center py-24 transition hover:border-black/40 ${largeClasses}`}
 >
   <div class="absolute inset-0 h-full w-full bg-black/40 backdrop-blur-sm transition group-hover:bg-black/10 group-hover:backdrop-blur-[3px]"></div>
-  <div class="z-10 flex w-5/6 flex-col items-start justify-center bg-yellow-600/70 p-2 text-white group-hover:bg-yellow-600/90 md:w-4/6 md:p-4 xl:w-3/6 xl:p-8">
-    <h2 class="font-walkway text-3xl tracking-wider transition-all group-hover:tracking-[0.08em] lg:text-5xl">{title}</h2>
+  <div class="z-10 flex flex-col items-start justify-center bg-yellow-600/70 px-4 py-6 text-black transition-all group-hover:bg-yellow-600 xl:px-6 xl:py-8">
+    <h2 class="pr-10 font-walkway text-3xl tracking-wider transition-all group-hover:tracking-[0.08em] lg:text-5xl">{title}</h2>
     {
       cta && (
         <h2 class="hover font-walkway mt-3 w-5/6 bg-black p-2 text-base tracking-wider text-white transition-all group-hover:w-full group-hover:bg-orange-950 md:text-xl lg:mt-6 lg:text-3xl">{cta}</h2>
