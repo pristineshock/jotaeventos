@@ -2,18 +2,20 @@
 interface Props {
   title: string;
   cta?: string;
-  page: string;
+  page?: "contact" | "services";
+  link?: URL;
   image: string;
   large?: boolean;
 }
 
-const { title, cta, page, image = await Astro.slots.render("image"), large } = Astro.props;
+const { title, cta, page, link, image = await Astro.slots.render("image"), large } = Astro.props;
 
 const largeClasses = large ? "md:col-span-2" : null;
 ---
 
 <a
-  href={`/${page}`}
+  href={link ? `${link}` : `/${page}`}
+  target={link ? "_blank" : "_self"}
   style={`background-image:url("/image/${image}")`}
   class={`group relative col-span-1 mx-auto flex w-full items-end justify-start border-8 border-black/30 bg-cover bg-clip-padding bg-center py-24 transition hover:border-black/40 ${largeClasses}`}
 >
