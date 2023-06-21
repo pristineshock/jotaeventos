@@ -60,7 +60,9 @@
   <script src={"https://www.google.com/recaptcha/api.js?render=" + SITE.googleCaptchaPublicKey} defer></script>
 </svelte:head>
 
-<div class="mx-auto w-full max-w-xl flex-[1_1_100%] rounded-2xl bg-black/20 p-6 backdrop-blur-xl md:flex-[1_1_50%]">
+<div
+  class="flex w-full flex-col items-center justify-start gap-6 border-8 border-black/30 bg-black/60 bg-clip-padding p-6 font-inter text-white backdrop-blur-xl transition-all hover:border-black/40 hover:bg-black/70 md:w-1/2"
+>
   {#if loading}
     <div class="flex items-center justify-center py-40">
       <div class="fancy-spinner">

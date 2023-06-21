@@ -3,7 +3,9 @@ import { SITE } from "~/config.mjs";
 import SocialIcon from "~/components/atoms/SocialIcon.astro";
 ---
 
-<div class="flex flex-[1_1_100%] flex-col items-center justify-start gap-6 rounded-lg bg-black/60 p-6 font-inter text-white backdrop-blur-xl md:flex-[1_1_50%]">
+<div
+  class="flex w-full flex-col items-center justify-start gap-6 border-8 border-black/30 bg-black/60 bg-clip-padding p-6 font-inter text-white backdrop-blur-xl transition-all hover:border-black/40 hover:bg-black/70 md:w-1/2"
+>
   <h2 class="text-center text-4xl font-bold">¡Hablemos de tu proximo evento!</h2>
   <p class="text-lg">Estamos esperando saber más sobre tu próximo evento y trabajar juntos para hacer que sea todo un éxito.</p>
   <p class="text-lg">Puede contactar con nosotros a través del formulario de contacto, o eligiendo una de las opciones a continuación.</p>
