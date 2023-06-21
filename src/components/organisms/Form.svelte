@@ -61,7 +61,7 @@
 </svelte:head>
 
 <div
-  class="flex w-full flex-col items-center justify-start gap-6 border-8 border-black/30 bg-black/60 bg-clip-padding p-6 font-inter text-white backdrop-blur-xl transition-all hover:border-black/40 hover:bg-black/70 md:w-1/2"
+  class="flex w-full flex-col items-center justify-start gap-6 border-8 border-black/30 bg-black/60 bg-clip-padding p-6 font-inter backdrop-blur-xl transition-all hover:border-black/40 hover:bg-black/70 md:w-1/2"
 >
   {#if loading}
     <div class="flex items-center justify-center py-40">
@@ -83,33 +83,33 @@
       <input aria-hidden="true" type="hidden" name="bot-field" bind:value={botField} />
       <div class="mb-2 w-full">
         <label for="name" class="font-bold text-white">Nombre</label>
-        <input bind:value={name} class="w-full rounded border bg-slate-100 p-2" required id="name" placeholder="Nombre" title="Nombre" type="text" />
+        <input bind:value={name} class="w-full rounded border bg-slate-100 p-2 text-black" required id="name" placeholder="Nombre" title="Nombre" type="text" />
         {#if resNameErr}
-          <p class="mt-1 rounded bg-red-400 p-2 text-xs text-black">{resNameErr}</p>
+          <p class="mt-1 rounded bg-red-400 p-2 text-xs font-medium text-black">{resNameErr}</p>
         {/if}
       </div>
       <div class="mb-2 w-full">
         <label for="email" class="font-bold text-white">Email</label>
-        <input bind:value={email} class="w-full rounded border bg-slate-100 p-2" required id="email" placeholder="blake@example.com" title="Email" type="email" />
+        <input bind:value={email} class="w-full rounded border bg-slate-100 p-2 text-black" required id="email" placeholder="blake@example.com" title="Email" type="email" />
         {#if resMailErr}
-          <p class="mt-1 rounded bg-red-400 p-2 text-xs text-black">{resMailErr}</p>
+          <p class="mt-1 rounded bg-red-400 p-2 text-xs font-medium text-black">{resMailErr}</p>
         {/if}
       </div>
       <div class="mb-2 w-full">
         <label for="message" class="font-bold text-white">Mensaje</label>
-        <textarea bind:value={message} class="w-full rounded border bg-slate-100 p-2" required id="message" rows={6} placeholder="Escribe tu mensaje aquí..." title="Mensaje" type="text" />
+        <textarea bind:value={message} class="w-full rounded border bg-slate-100 p-2 text-black" required id="message" rows={6} placeholder="Escribe tu mensaje aquí..." title="Mensaje" type="text" />
         {#if resMsgErr}
-          <p class="mt-1 rounded bg-red-400 p-2 text-xs text-black">{resMsgErr}</p>
+          <p class="mt-1 rounded bg-red-400 p-2 text-xs font-medium text-black">{resMsgErr}</p>
         {/if}
       </div>
       <div class="mx-auto mb-4">
         <div id="captcha" />
         {#if resCaptchaErr}
-          <p class="mt-1 rounded bg-red-400 p-2 text-xs text-black">{resCaptchaErr}</p>
+          <p class="mt-1 rounded bg-red-400 p-2 text-xs font-medium text-black">{resCaptchaErr}</p>
         {/if}
       </div>
       {#if resStatus == "failed"}
-        <p class="mt-1 rounded bg-red-400 p-2 text-xs text-black">
+        <p class="mt-1 rounded bg-red-400 p-2 text-xs font-medium text-black">
           {resMsg}
         </p>
       {/if}
