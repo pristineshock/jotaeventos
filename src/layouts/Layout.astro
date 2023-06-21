@@ -8,6 +8,7 @@ import Navbar from "~/components/molecules/Navbar.astro";
 import Footer from "~/components/molecules/Footer.astro";
 
 import favicon from "~/assets/favicon.ico";
+import ogImage from "~/assets/images/ogimage.png";
 import backgroundImg from "~/assets/images/pexels-vishnu-r-nair-1105666.jpg";
 
 export interface Props {
@@ -15,6 +16,7 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!DOCTYPE html>
@@ -24,7 +26,19 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href={favicon} />
     <meta name="generator" content={Astro.generator} />
+    <meta content="index,follow" name="robots" />
     <title>{title ? title + " - Jota Eventos" : "Jota Eventos"}</title>
+    <meta content="Sonido e Iluminación para todos tipo de eventos en Nogoya, Entre Rios y alrededores." name="description" />
+    <link href={canonicalURL} rel="canonical" />
+
+    <!-- Open Graph -->
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="Jota Eventos" property="og:title" />
+    <meta content="Sonido e Iluminación para todos tipo de eventos en Nogoya, Entre Rios y alrededores." property="og:description" />
+    <meta content="https://www.jotaeventos.com.ar" property="og:url" />
+    <meta content="website" property="og:type" />
+    <meta content={ogImage} property="og:image" />
+    <meta content="Jota Eventos" property="og:image:alt" />
   </head>
   <body class="relative h-full min-h-screen bg-black">
     <BasicScripts />
