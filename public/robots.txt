@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://www.jotaeventos.com.ar/sitemap-index.xml
