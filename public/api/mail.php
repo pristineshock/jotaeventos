@@ -26,10 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = htmlspecialchars($_REQUEST["name"]);
 
     if (strlen($name) <= 2) {
-      $return["nameErr"] = "Name must be at least 3 characters long";
+      $return["nameErr"] = "El nombre debe de ser de tres letras minino.";
     }
   } else {
-    $return["nameErr"] = "Please, complete this field";
+    $return["nameErr"] = "Por favor, completa este campo.";
   }
 
   // Post Mail Sanitation and Validation
@@ -37,10 +37,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = htmlspecialchars($_REQUEST["mail"]);
 
     if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-      $return["mailErr"] = "$mail is not a valid email address";
+      $return["mailErr"] = "$mail no es una dirección de email valida.";
     }
   } else {
-    $return["mailErr"] = "Please, complete this field";
+    $return["mailErr"] = "Por favor, completa este campo.";
   }
 
   // Post Message Sanitation and Validation
@@ -48,10 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = htmlspecialchars($_REQUEST["message"]);
 
     if (strlen($message) <= 20) {
-      $return["messageErr"] = "Message must be at least 20 characters long";
+      $return["messageErr"] = "El mensaje debe de ser de al menos 20 caracteres.";
     }
   } else {
-    $return["messageErr"] = "Please, complete this field";
+    $return["messageErr"] = "Por favor, completa este campo.";
   }
 
   // Captcha Sanitation and Validation
@@ -65,13 +65,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $return["captchaErr"] = $resp->getErrorCodes();
     }
   } else {
-    $return["captchaErr"] = "Please, complete the captcha";
+    $return["captchaErr"] = "Por favor, complete el captcha.";
   }
 
   // Check if there are errors
   if (!empty($return["nameErr"]) || !empty($return["mailErr"]) || !empty($return["messageErr"]) || !empty($return["captchaErr"])) {
     $return["status"] = "failed";
-    $return["message"] = "Please, check all fields for errors";
+    $return["message"] = "Por favor, corrija los errores.";
     echo json_encode($return);
     return;
   }
@@ -99,11 +99,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $mailer->send();
     $return["status"] = "success";
-    $return["message"] = "Thank you for sending this message. We will send you an email as soon as possible.";
+    $return["message"] = "Gracias por enviar este mensaje. Le enviaremos un correo electrónico lo antes posible.";
     echo json_encode($return);
   } catch (Exception $e) {
     $return["status"] = "failed";
-    $return["message"] = "There was an error sending this message. Please try again later or contact the administrator at " . MAIL_FROM;
+    $return["message"] = "Hubo un error al enviar este mensaje. Por favor, inténtelo de nuevo más tarde o contacte al administrador en " . MAIL_FROM;
     echo json_encode($return);
   }
 } else {
