@@ -9,8 +9,8 @@ const gallery = new URL(SITE.instagram);
 
 <Layout title="">
   <main class="mx-auto mt-24 grid w-11/12 max-w-7xl grid-cols-1 gap-8 md:w-10/12 md:grid-cols-2">
-    <IndexCard title="Hacemos de tu fiesta algo único" cta="Mandanos un mensaje!" page="contact" image="pexels-cottonbro-studio-3171837.jpg" large />
-    <IndexCard title="Servicios" page="services" image="pexels-francesco-paggiaro-2111015.jpg" />
-    <IndexCard title="Galeria" link={gallery} image="pexels-jessica-lewis-creative-593324.jpg" />
+    <IndexCard title="Hacemos de tu fiesta algo único" cta="Mandanos un mensaje!" page="contact" image="pexels-cottonbro-studio-3171837.jpg" large umamiEvent="Contact Clicked" />
+    <IndexCard title="Servicios" page="services" image="pexels-francesco-paggiaro-2111015.jpg" umamiEvent="Services Clicked" />
+    <IndexCard title="Galeria" link={gallery} image="pexels-jessica-lewis-creative-593324.jpg" umamiEvent="Gallery Clicked" />
   </main>
 </Layout>

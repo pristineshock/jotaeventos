@@ -6,7 +6,7 @@ import NavbarToggle from "../atoms/NavbarToggle.astro";
 <header class="relative z-40 mx-auto h-24 w-full bg-gradient-to-b from-black/70 to-transparent transition-all duration-200 ease-in" id="header">
   <div class="mx-auto w-full max-w-7xl px-3 py-3 lg:flex lg:justify-between lg:px-4 lg:py-3.5">
     <div class="flex items-center justify-between">
-      <a class="flex items-center" href="/">
+      <a class="flex items-center" href="/" data-umami-event="Navbar Logo Clicked">
         <Logo />
       </a>
       <div class="flex items-center lg:hidden">
@@ -15,9 +15,9 @@ import NavbarToggle from "../atoms/NavbarToggle.astro";
     </div>
     <nav class="hidden h-screen w-full items-center overflow-y-auto text-slate-200 lg:mx-5 lg:flex lg:h-auto lg:w-auto lg:overflow-visible" aria-label="Main navigation">
       <ul class="flex w-full flex-col pt-8 text-xl font-medium lg:w-auto lg:flex-row lg:self-center lg:pt-0 lg:text-base">
-        <li><a class="flex items-center rounded p-4 transition hover:bg-white/20" href="/">Inicio</a></li>
-        <li><a class="flex items-center rounded p-4 transition hover:bg-white/20" href="/services">Servicios</a></li>
-        <li><a class="flex items-center rounded p-4 transition hover:bg-white/20" href="/contact">Contacto</a></li>
+        <li><a class="flex items-center rounded p-4 transition hover:bg-white/20" href="/" data-umami-event="Navbar Index Clicked">Inicio</a></li>
+        <li><a class="flex items-center rounded p-4 transition hover:bg-white/20" href="/services" data-umami-event="Navbar Services Clicked">Servicios</a></li>
+        <li><a class="flex items-center rounded p-4 transition hover:bg-white/20" href="/contact" data-umami-event="Navbar Contact Clicked">Contacto</a></li>
       </ul>
     </nav>
   </div>

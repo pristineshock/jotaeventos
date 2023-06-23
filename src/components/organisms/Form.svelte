@@ -113,7 +113,12 @@
           {resMsg}
         </p>
       {/if}
-      <button class="flex w-full items-center justify-center rounded bg-yellow-400 p-4 font-inter font-bold text-black transition hover:bg-yellow-400/90" type="submit">Enviar</button>
+      <button
+        class="flex w-full items-center justify-center rounded bg-yellow-400 p-4 font-inter font-bold text-black transition hover:bg-yellow-400/90"
+        type="submit"
+        data-umami-event="Contact Submit Clicked"
+        data-umami-event-email={email}>Enviar</button
+      >
     </form>
   {/if}
 </div>

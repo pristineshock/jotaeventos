@@ -11,10 +11,10 @@ import SocialIcon from "~/components/atoms/SocialIcon.astro";
   <p class="text-lg">Puede contactar con nosotros a través del formulario de contacto, o eligiendo una de las opciones a continuación.</p>
   <p class="text-lg">¡Estamos esperando tu mensaje!</p>
   <div class="flex flex-wrap items-start justify-center gap-4">
-    {SITE.phone && <SocialIcon link={`tel:${SITE.phone}`} name="mdi:phone" />}
-    {SITE.facebook && <SocialIcon link={SITE.facebook} name="mdi:facebook" />}
-    {SITE.whatsapp && <SocialIcon link={SITE.whatsapp} name="mdi:whatsapp" />}
-    {SITE.instagram && <SocialIcon link={SITE.instagram} name="mdi:instagram" />}
-    {SITE.email && <SocialIcon link={`mailto:${SITE.email}`} name="mdi:email" />}
+    {SITE.phone && <SocialIcon link={`tel:${SITE.phone}`} name="mdi:phone" umamiEvent="Phone Clicked" />}
+    {SITE.facebook && <SocialIcon link={SITE.facebook} name="mdi:facebook" umamiEvent="Facebook Clicked" />}
+    {SITE.whatsapp && <SocialIcon link={SITE.whatsapp} name="mdi:whatsapp" umamiEvent="Whatsapp Clicked" />}
+    {SITE.instagram && <SocialIcon link={SITE.instagram} name="mdi:instagram" umamiEvent="Instagram Clicked" />}
+    {SITE.email && <SocialIcon link={`mailto:${SITE.email}`} name="mdi:email" umamiEvent="Email Clicked" />}
   </div>
 </div>
