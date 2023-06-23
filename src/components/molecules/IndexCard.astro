@@ -12,12 +12,15 @@ interface Props {
 const { title, cta, page, link, image = await Astro.slots.render("image"), large, umamiEvent } = Astro.props;
 
 const largeClasses = large ? "md:col-span-2" : null;
+const baseURL = new URL(Astro.url.pathname, Astro.site);
+
+const imageUrl = baseURL + "image/" + image;
 ---
 
 <a
   href={link ? `${link}` : `/${page}`}
   target={link ? "_blank" : "_self"}
-  style={`background-image:url("/image/${image}")`}
+  style={`background-image:url("${imageUrl}")`}
   class={`group relative col-span-1 mx-auto flex w-full items-end justify-start border-8 border-black/30 bg-cover bg-clip-padding bg-center py-24 transition hover:border-black/40 ${largeClasses}`}
   data-umami-event={umamiEvent ? umamiEvent : null}
 >
