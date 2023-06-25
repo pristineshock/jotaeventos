@@ -1,4 +1,6 @@
 ---
+import Picture from "~/components/atoms/Picture.astro";
+
 interface Props {
   title: string;
   cta?: string;
@@ -12,18 +14,17 @@ interface Props {
 const { title, cta, page, link, image = await Astro.slots.render("image"), large, umamiEvent } = Astro.props;
 
 const largeClasses = large ? "md:col-span-2" : null;
-const baseURL = new URL(Astro.url.pathname, Astro.site);
-
-const imageUrl = baseURL + "image/" + image;
 ---
 
 <a
   href={link ? `${link}` : `/${page}`}
   target={link ? "_blank" : "_self"}
-  style={`background-image:url("${imageUrl}")`}
   class={`group relative col-span-1 mx-auto flex w-full items-end justify-start border-8 border-black/30 bg-cover bg-clip-padding bg-center py-24 transition hover:border-black/40 ${largeClasses}`}
   data-umami-event={umamiEvent ? umamiEvent : null}
 >
+  <div class="pointer-events-none absolute inset-0 z-[-10]">
+    <Picture src={image} class="h-full object-cover" widths={[480, 768, 1600]} sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 1600px" alt={title} aspectRatio="16:9" />
+  </div>
   <div class="absolute inset-0 h-full w-full bg-black/40 backdrop-blur-sm transition group-hover:bg-black/10 group-hover:backdrop-blur-[3px]"></div>
   <div class="z-10 flex flex-col items-start justify-center bg-yellow-600/70 px-4 py-6 text-black transition-all group-hover:bg-yellow-600 xl:px-6 xl:py-8">
     <h2 class="pr-10 font-walkway text-3xl tracking-wider transition-all group-hover:tracking-[0.08em] lg:text-5xl">{title}</h2>
