@@ -30,7 +30,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <title>{title ? title + " - Jota Eventos" : "Jota Eventos"}</title>
     <meta content="Sonido e Iluminación para todos tipo de eventos en Nogoya, Entre Rios y alrededores." name="description" />
     <link href={canonicalURL} rel="canonical" />
-    {import.meta.env.PROD ? <meta http-equiv="Content-Security-Policy" content="default-src https:" /> : null}
     <script async src="https://anal.pristineshock.com/script.js" data-website-id="a667a8eb-16b4-4dd9-abf9-3dcc7abb64c5"></script>
 
     <!-- Open Graph -->
