@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         abel: ["'Abel'", ...defaultTheme.fontFamily.sans],
-        inter: ["'InterVariable'", ...defaultTheme.fontFamily.sans],
+        inter: ["'Inter Variable'", ...defaultTheme.fontFamily.sans],
         hamburger: ["'Hamburger'", ...defaultTheme.fontFamily.sans],
         walkway: ["'Walkway'", ...defaultTheme.fontFamily.sans],
       },

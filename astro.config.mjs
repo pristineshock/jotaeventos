@@ -16,7 +16,9 @@ export default defineConfig({
     partytown(),
     sitemap(),
     tailwind(),
-    image(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
     compress({
       css: true,
       html: {
