@@ -3,13 +3,13 @@ import "~/styles/base.css";
 import "@fontsource-variable/inter";
 
 import BasicScripts from "~/components/atoms/BasicScripts.astro";
-import Picture from "~/components/atoms/Picture.astro";
 import Navbar from "~/components/molecules/Navbar.astro";
 import Footer from "~/components/molecules/Footer.astro";
 
 import favicon from "~/assets/favicon.ico";
 import ogImage from "~/assets/images/ogimage.png";
 import backgroundImg from "~/assets/images/pexels-vishnu-r-nair-1105666.jpg";
+import { Picture } from "astro:assets";
 
 export interface Props {
   title: string;
@@ -19,7 +19,7 @@ const { title } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -38,7 +38,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta content="Sonido e Iluminación para todos tipo de eventos en Nogoya, Entre Rios y alrededores." property="og:description" />
     <meta content="https://www.jotaeventos.com.ar" property="og:url" />
     <meta content="website" property="og:type" />
-    <meta content={ogImage} property="og:image" />
+    <meta content={ogImage.src} property="og:image" />
     <meta content="Jota Eventos" property="og:image:alt" />
   </head>
   <body class="relative h-full min-h-screen bg-black">
@@ -50,7 +50,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         widths={[768, 1600, 2400, 3600, 4480]}
         sizes="(max-width: 768px) 768px, (max-width: 1400px) 1600px, (max-width: 2400px) 2400px, (max-width: 3600px) 3600px, 4480px"
         alt="Gente bailando"
-        aspectRatio="16:9"
       />
       <div class="absolute inset-0 h-full w-full bg-black/20 backdrop-blur-sm"></div>
     </div>

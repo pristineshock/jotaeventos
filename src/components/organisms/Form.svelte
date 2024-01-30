@@ -1,5 +1,5 @@
 <script>
-  import { SITE } from "~/config.mjs";
+  import { SITE } from "~/config.mts";
 
   let botField = "";
   let name = "";

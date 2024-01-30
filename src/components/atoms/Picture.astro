@@ -1,5 +1,5 @@
 ---
-import { getPicture } from "@astrojs/image";
+import { getImage } from "astro:assets";
 
 const { src, alt, sizes, widths, aspectRatio = 1, formats = ["avif", "webp"], loading = "lazy", decoding = "async", class: className = "", ...attrs } = Astro.props;
 
@@ -7,7 +7,7 @@ let picture = null;
 try {
   picture =
     src &&
-    (await getPicture({
+    (await getImage({
       src,
       alt,
       widths,

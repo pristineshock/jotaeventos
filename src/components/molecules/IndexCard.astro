@@ -1,5 +1,5 @@
 ---
-import Picture from "~/components/atoms/Picture.astro";
+import { Picture } from "astro:assets";
 
 interface Props {
   title: string;
@@ -23,14 +23,14 @@ const largeClasses = large ? "md:col-span-2" : null;
   data-umami-event={umamiEvent ? umamiEvent : null}
 >
   <div class="pointer-events-none absolute inset-0 z-[-10]">
-    <Picture src={image} class="h-full object-cover" widths={[480, 768, 1600]} sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 1600px" alt={title} aspectRatio="16:9" />
+    <Picture src={image} class="h-full object-cover" widths={[480, 768, 1600]} width="1920" height="1280" sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 1600px" alt={title} />
   </div>
   <div class="absolute inset-0 h-full w-full bg-black/40 backdrop-blur-sm transition group-hover:bg-black/10 group-hover:backdrop-blur-[3px]"></div>
   <div class="z-10 flex flex-col items-start justify-center bg-yellow-600/70 px-4 py-6 text-black transition-all group-hover:bg-yellow-600 xl:px-6 xl:py-8">
     <h2 class="pr-10 font-walkway text-3xl tracking-wider transition-all group-hover:tracking-[0.08em] lg:text-5xl">{title}</h2>
     {
       cta && (
-        <h2 class="hover font-walkway mt-3 w-5/6 bg-black p-2 text-base tracking-wider text-white transition-all group-hover:w-full group-hover:bg-orange-950 md:text-xl lg:mt-6 lg:text-3xl">{cta}</h2>
+        <h2 class="hover mt-3 w-5/6 bg-black p-2 font-walkway text-base tracking-wider text-white transition-all group-hover:w-full group-hover:bg-orange-950 md:text-xl lg:mt-6 lg:text-3xl">{cta}</h2>
       )
     }
   </div>
